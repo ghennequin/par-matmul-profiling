@@ -1,0 +1,10 @@
+(executable
+ (name toy)
+ (libraries stdio base owl domainslib)
+ (preprocess
+  (pps ppx_sexp_message)))
+
+(env
+ (dev
+  (flags
+   (:standard -warn-error -A))))
