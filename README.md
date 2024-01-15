@@ -2,14 +2,18 @@
 
 ```sh
 export OMP_NUM_THREADS=1
-export OCAMLRUNPARAM=s=32M 
+export OCAMLRUNPARAM=s=32M
 
 opam switch 5.0.0
 eval $(opam env)
+opam pin -n git+https://github.com/tmcgilchrist/owl.git#arm64 --with-version=1.1.0 -y
+opam install stdio base owl domainslib ppx_sexp_message
 dune clean
-dune exec src/toy.exe -- speedup-5.0 
-  
-opam switch 5.1.0~beta1
+dune exec src/toy.exe -- speedup-5.0
+
+opam switch 5.1.1
+opam pin -n git+https://github.com/tmcgilchrist/owl.git#arm64 --with-version=1.1.0 -y
+opam install stdio base owl domainslib ppx_sexp_message
 eval $(opam env)
 dune clean
 dune exec src/toy.exe -- speedup-5.1

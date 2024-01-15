@@ -1,6 +1,6 @@
 (executable
  (name toy)
- (libraries stdio base owl domainslib)
+ (libraries stdio base owl domainslib unix ppx_sexp_message)
  (preprocess
   (pps ppx_sexp_message)))
 
